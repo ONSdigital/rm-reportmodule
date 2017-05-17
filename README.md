@@ -1,4 +1,3 @@
-Branch to remove jax-rs
 
 
 # Reporting
