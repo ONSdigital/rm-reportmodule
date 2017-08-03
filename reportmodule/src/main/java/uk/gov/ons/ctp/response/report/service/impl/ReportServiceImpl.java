@@ -11,7 +11,13 @@ import uk.gov.ons.ctp.response.report.domain.repository.ReportTypeRepository;
 import uk.gov.ons.ctp.response.report.service.ReportService;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
+/**
+ * Implementation of common report service interface.
+ *
+ */
 @Slf4j
 @Service
 public class ReportServiceImpl implements ReportService {
@@ -24,39 +30,29 @@ public class ReportServiceImpl implements ReportService {
 
     @Autowired
     private ReportTypeRepository reportTypeRepository;
-    
-    /**
-     * find all available report types
-     *
-     * @return List of report types
-     */
+
+    @Override
     public List<ReportType> findTypes() {
       List<ReportType> reportTypes = reportTypeRepository.findReportTypeByOrderByDisplayOrder();
       return reportTypes;
     }
 
-    /**
-     * Find reportSummary by reportType.
-     *
-     * @param reportType String enum
-     * @return Report list object or null
-     */
+    @Override
+    public Optional<ReportType> findType(String reportTypeId) {
+      Optional<ReportType> reportType = reportTypeRepository.findFirstByReportTypePK(reportTypeId);
+      return reportType;
+    }
+
     @Override
     public List<ReportSummary> getReportSummary(final String reportType) {
-      log.debug("Entering findReportDatesByReportType with {}", reportType);
+      log.debug("Entering findReportSummariesByReportType with {}", reportType);
       return reportRepository.getReportSummary(reportType);
     }
 
-    /**
-     * Find Report entity by reportId.
-     *
-     * @param reportId Integer
-     * @return Report object or null
-     */
     @Override
-    public Report findByReportId(final Integer reportId) {
+    public Optional<Report> findByReportId(final UUID reportId) {
       log.debug("Entering findByReportTypeAndReportDate with {}", reportId);
-      return reportRepository.findOne(reportId);
+      return reportRepository.findById(reportId);
     }
 
 }

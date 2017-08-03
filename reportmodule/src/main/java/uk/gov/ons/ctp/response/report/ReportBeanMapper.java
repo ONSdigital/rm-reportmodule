@@ -3,8 +3,11 @@ package uk.gov.ons.ctp.response.report;
 import ma.glasnost.orika.MapperFactory;
 import ma.glasnost.orika.impl.ConfigurableMapper;
 import org.springframework.stereotype.Component;
+
+import uk.gov.ons.ctp.response.report.domain.model.Report;
 import uk.gov.ons.ctp.response.report.domain.model.ReportSummary;
 import uk.gov.ons.ctp.response.report.domain.model.ReportType;
+import uk.gov.ons.ctp.response.report.representation.ReportDTO;
 import uk.gov.ons.ctp.response.report.representation.ReportSummaryDTO;
 import uk.gov.ons.ctp.response.report.representation.ReportTypeDTO;
 
@@ -24,11 +27,19 @@ public class ReportBeanMapper extends ConfigurableMapper {
 
     factory
     .classMap(ReportSummary.class, ReportSummaryDTO.class)
+    .field("reportTypeFK", "reportType")
     .byDefault()
     .register();
 
     factory
     .classMap(ReportType.class, ReportTypeDTO.class)
+    .field("reportTypePK", "reportType")
+    .byDefault()
+    .register();
+
+    factory
+    .classMap(Report.class, ReportDTO.class)
+    .field("reportTypeFK", "reportType")
     .byDefault()
     .register();
 

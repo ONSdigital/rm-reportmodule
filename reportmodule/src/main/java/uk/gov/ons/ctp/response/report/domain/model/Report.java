@@ -2,6 +2,7 @@ package uk.gov.ons.ctp.response.report.domain.model;
 
 
 import java.util.Date;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,20 +26,17 @@ import lombok.NoArgsConstructor;
 public class Report {
 
   @Id
-  @Column(name = "reportid")
-  private Integer reportId;
+  @Column(name = "reportpk")
+  private Integer reportPK;
 
-  @Column(name = "reporttype")
-  private String reportType;
+  private UUID id;
+
+  @Column(name = "reporttypefk")
+  private String reportTypeFK;
 
   private String contents;
 
   @Column(name = "createddatetime")
   private Date createdDateTime;
 
-  public Report(int reportId, String reportType, Date createdDateTime) {
-    this.reportId = reportId;
-    this.reportType = reportType;
-    this.createdDateTime = createdDateTime;    
-  }
 }
