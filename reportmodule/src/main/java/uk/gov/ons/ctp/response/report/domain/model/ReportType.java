@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * Domain model object.
+ * Domain model for type of report.
  */
 @Entity
 @Data
@@ -23,13 +23,13 @@ import javax.persistence.Table;
 public class ReportType {
 
   @Id
-  @Column(name = "reporttypePK")
-  private String reportTypePk;
+  @Column(name = "reporttypepk")
+  private String reportTypePK;
 
   @Column(name = "displayorder")
   private Integer displayOrder;
-  
+
   @Column(name = "displayname")
   private String displayName;
-  
+
 }

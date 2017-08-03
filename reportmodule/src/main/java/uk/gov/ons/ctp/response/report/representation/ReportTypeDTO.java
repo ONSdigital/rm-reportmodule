@@ -7,19 +7,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Domain model object
+ * ReportType External API representation.
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 public class ReportTypeDTO {
 
-  private Integer reportTypeId;
-  
   private String reportType;
-  
-  private Integer orderId;
-  
+
+  private Integer displayOrder;
+
   private String displayName;
-  
+
 }
