@@ -17,7 +17,6 @@
   </parent>
 
   <dependencies>
-
     <dependency>
       <groupId>uk.gov.ons.ctp.common</groupId>
       <artifactId>framework</artifactId>
