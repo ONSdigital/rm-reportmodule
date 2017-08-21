@@ -5,7 +5,7 @@
 
   <artifactId>reportmodule</artifactId>
   <packaging>jar</packaging>
-
+  <version>10.45.1-SNAPSHOT</version>
   <name>CTP : Reporting: ReportModule</name>
   <description>CTP : Reporting: ReportModule</description>
 
