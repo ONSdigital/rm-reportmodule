@@ -3,12 +3,12 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>uk.gov.ons.ctp.product</groupId>
-  <artifactId>reporting</artifactId>
+  <artifactId>reportmodule</artifactId>
   <version>10.45.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
+  <packaging>jar</packaging>
 
-  <name>CTP : Reporting</name>
-  <description>CTP : Reporting</description>
+  <name>CTP : ReportModule</name>
+  <description>CTP : ReportModule</description>
 
   <properties>
     <commonbom.version>10.45.0-SNAPSHOT</commonbom.version>
@@ -23,10 +23,6 @@
     <version>10.45.0-SNAPSHOT</version>
   </parent>
 
-  <modules>
-    <module>reportmodule</module>
-  </modules>
-
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -38,6 +34,40 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>uk.gov.ons.ctp.common</groupId>
+      <artifactId>framework</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jdbc</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-configuration-processor</artifactId>
+      <optional>true</optional>
+    </dependency>
+
+    <dependency>
+      <groupId>ma.glasnost.orika</groupId>
+      <artifactId>orika-eclipse-tools</artifactId>
+    </dependency>
+  </dependencies>
 
   <scm>
     <connection>scm:git:git@github.com:ONSdigital/rm-reportmodule.git</connection>
@@ -66,6 +96,12 @@
         <artifactId>buildnumber-maven-plugin</artifactId>
       </plugin>
     </plugins>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
   </build>
 
   <profiles>
