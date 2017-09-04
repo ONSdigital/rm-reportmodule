@@ -1,17 +1,19 @@
 package uk.gov.ons.ctp.response.report.representation;
 
 
-import java.util.Date;
-import java.util.UUID;
-
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.sourceforge.cobertura.CoverageIgnore;
+
+import java.util.Date;
+import java.util.UUID;
 
 /**
  * Report External API representation.
  */
+@CoverageIgnore
 @Data
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
