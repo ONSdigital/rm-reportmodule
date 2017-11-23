@@ -1,7 +1,19 @@
-# language: java
-# jdk:
-# - oraclejdk8
-#
-# notifications:
-#   slack:
-#     secure: noMpwk4x1FW+saoGsJ8vrHadVFVA1USQu7UAZCvzssT7MMLX8vUWxl6QxonxgHX9xIyodDJzm8jHXpskjFp8LlAaDs8hnMdvY+7LgrwF2/GLczsGuHuxKqKC6I34pWEN/AFutp4VxOkvCRNnf2UJM4E1uZgawne+mBjYcgSIob4s1ndF680QiNnSIM+90teuccuE400wMF3ImE90In65vpGqaEvGy5dLbEFaYk8CBDntZ8svje/gBgoIL32AY6eujQRZs6vnMnn8ditogU2icSBEoHfUdJnmCL4+EIxrkNjI7Dni/4QNw9WPEr3JqqqPaTDcfwMheDStuIek0+WT/eOkzJVIaO24ZLVOocGqzkdF6aqIn0AieSncZ28VLRrtKHU2/Da4XeuvsC4EeqJaK6gBG5TgD2MJYA5ItgxcaWKqsrtleGy9ZVWSWGlVwRairQKGjp7lSMjrATVvOTApL9Ol2PmUWnXC2K1hNV4YYEomqQbX/SVNv1jU6uxW5OmghN9oBsY6G7x7kCf7d0Q17wtp7WGeSdhc3dBP7shAJpWfNI3VCvGEuRZJWV8/icKSYijO6CkxtEBYho32O8OBU5yodZN1a09yl5vkyFyMF0kF3bNGji46MBaXCZbq2Bp3vnmq6HmBIUP2pTAbAvaSBk9/w6+lfBj6LEVkWC7Orms=
+language: java
+jdk: openjdk8
+
+before_install: cp .travis.settings.xml $HOME/.m2/settings.xml
+
+notifications:
+  slack:
+    rooms:
+      secure: ZZAO7Wenqq1ltC4sHWlCcQDS7DKLdO3HJf4b2kAWmIeRx+8iDwVP7TqYa5hktKs/DJSDwDa1gX+EpvvWU6oGCGNqkHpnjz6dt4mp5gfD7JWgYmdxjB84NpJBRyTe0NBYZ1uIBhHLbKohL3P5eih75kafsrVKNjOtC5wtlNJZkrozheeE1NBEWlvCF/yMjSbb5CR+U6eHpVDtmxCANryTUzw8OdH84NTvzrTg5dgOO4jNFtXsgSqgg/l66wVmJR8mvl9pQTpIV0Ch7O0SewrLQ0L+09QZY0JmDKkrsz6IrIYJF6v2E9djLQ91Wd7UoIcwNU88fzzBywLiT3GnZ6Ru21bhENBJ2ovZUOYvuhFg4pDVoSitkCTKiP1i61iyOiMtmI84vqIWYV29Qt7lkWFWeXtmjxch7f7dVoRHhOae8LnhMpe9BqDsizgN1PCVTjJt2+unGltFwGA6iY/gmUv6RxuKJJCSSLiHeJMHO52PdfbqZ+KRJQ9RBZCJW0duTUlu4ihQwH3vYtQPVLwLxIf7VwCfrSYhprqaN4bgYC1/WW1KBeAwciQBgqkrm2GXs05SjWjN45eDLk7JRrYOI4A2pHM/vZ4k6oURu+AczKPp2j16GtiGRy5BhFF9EzWt/hJMqXk3+WS7D2ZKZ2/e25ODmRkm3l4IuwwAKeDIdxSWkZ4=
+    on_failure: always
+    on_success: never
+
+cache:
+  directories:
+  - $HOME/.m2
+
+branches:
+    only:
+        - master

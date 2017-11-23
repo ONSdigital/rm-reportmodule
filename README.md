@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ONSdigital/rm-reportmodule.svg?branch=master)](https://travis-ci.org/ONSdigital/rm-reportmodule)
+
 # Reporting
 This project contains the code required to provide reporting functionality to a CTP SpringBoot Application.
 
